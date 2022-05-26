@@ -2,6 +2,18 @@
 
 debexec makes it easy for end users to run the latest Debian software without upgrading their OS.
 
+Helpful Downloads:
+* [System-wide Debian package](https://github.com/compholio/debexec/releases/latest/download/debexec_amd64.deb)
+* [Launch DeSmuME](https://github.com/compholio/debexec/releases/latest/download/desmume.dxe)
+* [Launch Discord](https://github.com/compholio/debexec/releases/latest/download/discord.dxe)
+* [Launch Firefox](https://github.com/compholio/debexec/releases/latest/download/firefox.dxe)
+* [Launch GIMP](https://github.com/compholio/debexec/releases/latest/download/gimp.dxe)
+* [Launch Inkscape](https://github.com/compholio/debexec/releases/latest/download/inkscape.dxe)
+* [Launch Spotify](https://github.com/compholio/debexec/releases/latest/download/spotify.dxe)
+* [Launch VLC](https://github.com/compholio/debexec/releases/latest/download/vlc.dxe)
+
+(if you have installed the system-wide Debian package then the links above will launch directly from your browser)
+
 ## Primary Goals
 * Make it easy for end users to run the latest and greatest programs
   * Allow the end user to just run the executable

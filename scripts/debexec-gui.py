@@ -212,6 +212,7 @@ class DebconfPage(QWizardPage):
         message.setReadOnly(True)
         layout.addWidget(message)
         self._select = select = QListWidget()
+        self._select.itemSelectionChanged.connect(self.completeChanged)
         layout.addWidget(select)
         self.setLayout(layout)
         self._vars = {}
@@ -263,12 +264,16 @@ class DebconfPage(QWizardPage):
             _send_msg(sys.argv[4], '0 \n')
             return True
         self.setQuestion(self._question + 1)
+        self.completeChanged.emit()
         return False
     
     def nextId(self):
         return PAGE.INSTALLAPP
     
     def isComplete(self):
+        question = list(self._vars.values())[self._question]
+        if question['type'] == 'select':
+            return (self._select.currentItem() != None)
         return True
 
 class PAGE(IntEnum):

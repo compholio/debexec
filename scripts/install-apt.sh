@@ -1,7 +1,9 @@
 #!/bin/sh
 
 echo "custatus:9:100.0000:Installing core APT utilities..." >/REAL_ROOT/${DEBEXEC_APTSTATUS}
+ln -s /bin/sh /bin/bash # work around a bug in adduser
 install_deps --and-package apt
+rm /bin/bash # remove adduser bug workaround
 
 # configure the apt sources file
 (

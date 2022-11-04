@@ -27,6 +27,16 @@ if [ "$(head -n2 "${DXE}" | tail -n1)" != "##DEBEXEC##" ]; then
     exit 1
 fi
 
+# find a temporary directory with exec permisions
+TMPDIRS="${TMPDIR} /tmp /var/tmp /run/user/$(id -u)"
+for TMPDIR in ${TMPDIRS}; do
+    OPTIONS=$(findmnt --target /var/tmp | tail -n 1 | sed 's/.* \(.*\)$/\1/')
+    if echo "${OPTIONS}" | grep 'noexec'; then
+        continue
+    fi
+    break
+done
+
 # strip off this script from the rest of the data and extract the tarball that follows
 OFFSET=$(grep --byte-offset --only-matching --text '##END\-DEBEXEC\-SCRIPT##' "${DXE}" | sed 's/:.*//')
 OFFSET=$((${OFFSET} + 24))

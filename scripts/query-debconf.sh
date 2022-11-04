@@ -9,8 +9,8 @@ layout=$(db_get keyboard-configuration/layoutcode)
 variant=$(db_get keyboard-configuration/variantcode)
 options=$(db_get keyboard-configuration/optionscode)
 
-mkdir -p "${FAKEROOT}"/var/cache/debexec
-cat - > "${FAKEROOT}"/var/cache/debexec/debconf <<EOF
+mkdir -p "${FAKEROOT}"/usr/var/cache/debexec
+cat - > "${FAKEROOT}"/usr/var/cache/debexec/debconf <<EOF
 tzdata	tzdata/Areas	select	${AREA}
 tzdata	tzdata/Zones/$AREA	select ${ZONE}
 keyboard-configuration	keyboard-configuration/modelcode	string	${model}

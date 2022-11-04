@@ -9,8 +9,8 @@ while [ "${SHIFT}" -ne "0" ]; do
         --revertuid)
             REVERTUID=1
             USEPROC="--use-proc"
-            DEBEXEC_UID=$(cat /var/cache/debexec/uid)
-            DEBEXEC_GID=$(cat /var/cache/debexec/gid)
+            DEBEXEC_UID=$(cat /usr/var/cache/debexec/uid)
+            DEBEXEC_GID=$(cat /usr/var/cache/debexec/gid)
             SHIFT=1
             ;;
         --mount)

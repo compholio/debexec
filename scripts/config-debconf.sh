@@ -1,1 +1,1 @@
-debconf-set-selections < /var/cache/debexec/debconf
+debconf-set-selections < /usr/var/cache/debexec/debconf

@@ -42,12 +42,11 @@ done
 
 . "${DIR}"/helper-functions-early.sh
 
-DEBPATH=/var/cache/debexec/aptcache
-CONFIGURED=$(cat "${FAKEROOT}"/var/cache/debexec/configured 2>/dev/null)
+DEBPATH=/usr/var/cache/debexec/aptcache
+CONFIGURED=$(cat "${FAKEROOT}"/usr/var/cache/debexec/configured 2>/dev/null)
 SPECIAL_DIRS=$(. "${DIR}"/config-dirs.sh)
 
 COPY_FILES=$(/bin/sh "${DIR}"/get-video.sh)
-. "${DIR}"/query-debconf.sh
 . "${DIR}"/config-root.sh
 #DIR=/REAL_ROOT/"${DIR}"
 DEBEXEC_DIR=/REAL_ROOT/"${DEBEXEC_DIR}"
@@ -85,10 +84,10 @@ if [ "${NOLAUNCH}" -eq "1" ]; then
 fi
 
 # store the user ID and group ID of the user for later use
-mkdir -p /var/cache/debexec
-echo "1" > /var/cache/debexec/configured
-echo "${DEBEXEC_UID}" > /var/cache/debexec/uid
-echo "${DEBEXEC_GID}" > /var/cache/debexec/gid
+mkdir -p /usr/var/cache/debexec
+echo "1" > /usr/var/cache/debexec/configured
+echo "${DEBEXEC_UID}" > /usr/var/cache/debexec/uid
+echo "${DEBEXEC_GID}" > /usr/var/cache/debexec/gid
 
 # let the gui know that we're all done
 if [ "${DEBEXEC_GUI}" -eq "1" ]; then

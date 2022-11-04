@@ -27,14 +27,16 @@ echo "destatus:0:0.0000:Updating apt package list..." >/REAL_ROOT/${DEBEXEC_APTS
 apt -o APT::Status-Fd=3 update 3>/REAL_ROOT/${DEBEXEC_APTSTATUS}
 # * rest of util-linux unlisted dependencies
 echo "destatus:1:0.0000:Installing pre-dependency packages..." >/REAL_ROOT/${DEBEXEC_APTSTATUS}
+ln -s /bin/false /bin/mountpoint # work around bug in usrmerge
 apt -o APT::Status-Fd=3 install --yes \
     libterm-readline-gnu-perl \
     init-system-helpers \
+    bash \
 3>/REAL_ROOT/${DEBEXEC_APTSTATUS};
+rm /bin/mountpoint # remove usrmerge bug workaround
 # * dependencies are satisfied
 echo "destatus:2:0.0000:Installing packages..." >/REAL_ROOT/${DEBEXEC_APTSTATUS}
 apt -o APT::Status-Fd=3 install --yes \
-    bash \
     apt-utils \
     gzip \
     libtext-iconv-perl \

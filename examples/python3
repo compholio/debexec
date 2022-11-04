@@ -1,0 +1,4 @@
+EXTRAPACKAGES="python3"
+DEBEXEC_LAUNCH="python3"
+DEBEXEC_PERSIST="debian-unstable"
+DEBEXEC_USEDISK="yes"

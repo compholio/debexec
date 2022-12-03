@@ -64,6 +64,7 @@ install_deps --and-package \
 # needed for actually installing anything with apt
 echo "custatus:8:88.8888:Installing core Debian utilities..." >/REAL_ROOT/${DEBEXEC_APTSTATUS}
 ln -s /sbin/ldconfig /usr/sbin/ldconfig # work around bug in libc-bin
+ln -s /bin/true /usr/bin/perl # work around recent debconf "needing" perl for set up
 install_deps --and-package \
     libc-bin \
     debconf \

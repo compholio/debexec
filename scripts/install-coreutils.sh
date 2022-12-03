@@ -22,7 +22,7 @@ install_deps --and-package $(find_pattern gcc-*-base)
 # note: these dependencies must be installed in a _very_ specific order and our dependency resolver
 # is not smart enough to handle that yet
 #install_deps --simultaneously dpkg
-DEBS="libattr1 libacl1 libgcc1 libgcc-s1 libc6 libpcre2-* libpcre3 libselinux1 libzstd1 zlib1g liblzma5 libbz2-1.0 libgmp10"
+DEBS="libattr1 libacl1 libgcc1 libgcc-s1 libc6 libpcre2-* libpcre3 libselinux1 libzstd1 zlib1g liblzma5 libbz2-1.0 libgmp10 libmd0"
 #DEBS="libattr1 libc6 libgcc1 libpcre3 libacl1 libc6 libselinux1   libbz2-1.0 liblzma5 zlib1g"
 DEBS=$(find_pattern ${DEBS})
 echo "custatus:2:22.2222:Installing core C libraries..." >/REAL_ROOT/${DEBEXEC_APTSTATUS}

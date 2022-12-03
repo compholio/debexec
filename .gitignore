@@ -2,6 +2,7 @@
 /.keys
 /debexec/
 /debexec_*_amd64.deb
+/debexec_*_amd64-unsigned.deb
 /*.dxe
 /src/debexec-preload.so
 __pycache__

@@ -1,4 +1,5 @@
 /.icon-cache
+/.gnupg
 /.keys
 /debexec/
 /debexec_*_amd64.deb
